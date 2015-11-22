@@ -1,0 +1,1441 @@
+USER'S MANUAL
+
+The names of the files:
+Interpreter_Main.java
+Tokenizer.java
+Tokenizer_Class.java
+Parse_Tree_Imp.java
+Parse_Tree.java
+test1.txt
+test2.txt
+
+To run the program, it is required to import the files 
+mentioned above in eclipse and run it in the eclipse environment. The main file is Interpreter_Main. 
+Using run icon, click run configurations, select the name of the project and the main file then 
+type the names of the text files (test1.txt test2.txt) in arguments subwindow. Click run. 
+To edit the input files, open them then modify and save. To look at the java files open them. 
+
+DESIGN
+	Interpreter_main opens the input program file reads it line by line and calls Parse_Tree object that extracts all the tokens from the file. Then Interpreter_Main opens an input data file and calls another operation of the Parse_Tree object. After that the main class parses the program by using the private operations.The program is parsed by using recursive descent approach. Each parse operation parses each nonterminal by calling  other parse operations if needed.After parsing the program Interpreter_Main prints the program by using the private printing operations. The program is printed by using recursive descent approach.  Each print operation prints the data for each nonterminal by calling  other print operations if needed. After printing the main class executes the program. To execute the program the Interpreter_Main uses private operations and recursive descent approach. Each executing operation executes or evaluates each nonterminal.  
+
+The description of the public and private operations is provided below.
+//--------------------------------------------------------------------------------------
+    //                                     PRIVATE OPERATIONS
+    //--------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------
+    //                                      PARSE OPERATIONS
+    //--------------------------------------------------------------------------------------
+     
+     
+     /**
+   * Checks whether a token is a starting token of any of the statements 
+       *
+       * @param token
+       *            a token that is checked
+
+   */
+
+     private static boolean Stmt_Token(int token){
+           
+     /**
+      * Checks whether a token is a comparison token 
+          *
+          * @param token
+          *            a token that is checked
+
+      */   
+     private static boolean Comp_Op(int token)
+        
+     /**
+      * Parses the program nonterminal by making  a call to parsing operations that parse the 
+      * nonterminal possible substitutions. 
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */   
+     
+    private static void Parse_Prog(Parse_Tree p)
+       
+    /**
+     * Parses the Decl_Seq nonterminal by making  a call to parsing operations that parse the 
+     * nonterminal possible substitutions. 
+         *
+         * @param Parse_Tree
+         *            a Parse_Tree object that is going to represent a parse_tree of the program
+     */   
+    
+        private static void Parse_Decl_Seq(Parse_Tree p)
+               /**
+         * Parses the Decl nonterminal by making  a call to parsing operations that parse the 
+         * nonterminal possible substitutions. 
+             *
+             * @param Parse_Tree
+             *            a Parse_Tree object that is going to represent a parse_tree of the program
+         */   
+        
+        private static void Parse_Decl(Parse_Tree p)
+        /**
+         * Parses the Id_List nonterminal by making  a call to parsing operations that parse the 
+         * nonterminal possible substitutions. 
+             *
+             * @param Parse_Tree
+             *            a Parse_Tree object that is going to represent a parse_tree of the program
+         */   
+        
+    private static void Parse_Id_List (Parse_Tree p){
+          /**
+     * Parses the id nonterminal, puts Id in the declared ID_Table, and puts the index of the position of the 
+     * id in the ID table in the row (row that represent Id nonterminal) at position 2
+         *
+         * @param Parse_Tree
+         *            a Parse_Tree object that is going to represent a parse_tree of the program
+     */   
+    
+   
+     private static void Parse_Id (Parse_Tree p)
+        
+     /**
+      * Parses the Stmt_Seq nonterminal by making  a call to parsing operations that parse the 
+      * nonterminal possible substitutions. 
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */   
+     private static void Parse_Stmt_Seq (Parse_Tree p)
+          /**
+      * Parses the Stmt nonterminal by making  a call to parsing operations that parse the 
+      * nonterminal possible substitutions. 
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */  
+     private static void Parse_Stmt(Parse_Tree p)
+         /**
+      * Parses the Assign nonterminal by making  a call to parsing operations that parse the 
+      * nonterminal possible substitutions. 
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */  
+             private static void Parse_Assign(Parse_Tree p)
+                         /**
+              * Parses the If nonterminal by making  a call to parsing operations that parse the 
+              * nonterminal possible substitutions. 
+                  *
+                  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */  
+             private static void Parse_If (Parse_Tree p)
+                         /**
+              * Parses While nonterminal by making  a call to parsing operations that parse the 
+              * nonterminal possible substitutions. 
+                  *
+                  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */  
+             
+                 private static void Parse_While (Parse_Tree p)
+               
+                 
+  /**
+   * Parses the Input nonterminal by making  a call to parsing operations that parse the 
+   * nonterminal possible substitutions. 
+   *
+   * @param Parse_Tree
+   *            a Parse_Tree object that is going to represent a parse_tree of the program
+   */  
+             private static void Parse_Input (Parse_Tree p)
+            /**
+  * Parses the Output nonterminal by making  a call to parsing operations that parse the 
+  * nonterminal possible substitutions. 
+  *
+  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */     
+             private static void Parse_Output (Parse_Tree p)
+             
+           /**
+* Parses the DEclared_Id_List nonterminal by making  a call to parsing operations that parse the 
+* nonterminal possible substitutions. Checks whether id_list was declared before
+*
+* @param Parse_Tree
+*            a Parse_Tree object that is going to represent a parse_tree of the program
+*/           
+             private static void Parse_Declared_Id_List (Parse_Tree p)
+                          	/**
+             	 * Parses the Declared_Id nonterminal by making  a call to parsing operations that parse the 
+             	 * nonterminal possible substitutions. Checks whether id was declared before
+             	 *
+             	 * @param Parse_Tree
+             	 *           a Parse_Tree object that is going to represent a parse_tree of the program
+             	 */                     
+             
+             private static void Parse_Declared_Id (Parse_Tree p)
+                         /**
+              * Parses the Cond nonterminal by making  a call to parsing operations that parse the 
+              * nonterminal possible substitutions. 
+                  *
+                  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */            
+             public static void  Parse_Cond (Parse_Tree p)
+                
+             
+             /**
+              * Parses the Comp nonterminal by making  a call to parsing operations that parse the 
+              * nonterminal possible substitutions. 
+                  *
+                  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */
+     private static void Parse_Comp (Parse_Tree p)
+     
+             /**
+              * Parses the OP nonterminal by making  a call to parsing operations that parse the 
+              * nonterminal possible substitutions. 
+                  *
+                  * @param Parse_Tree
+                  *            a Parse_Tree object that is going to represent a parse_tree of the program
+              */
+   private static void Parse_Op( Parse_Tree p)
+  
+   
+   /**
+    * Parses the Comp_op nonterminal. Puts the value of the comp_op in the row of comp_op nonterminal 
+        *
+        * @param Parse_Tree
+        *            a Parse_Tree object that is going to represent a parse_tree of the program
+    */
+   
+  private static void Parse_Comp_Op (Parse_Tree p)
+
+  /**
+   * Parses the Expression nonterminal by making  a call to parsing operations that parse the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that is going to represent a parse_tree of the program
+   */   
+    
+     private static void Parse_Exp ( Parse_Tree p)
+   
+    
+     /**
+      * Parses the Factor nonterminal by making  a call to parsing operations that parse the 
+      * nonterminal possible substitutions. 
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */  
+     private static void Parse_Factor (Parse_Tree p)
+  
+    
+    
+     /**
+      * Parses the Integer nonterminal. Puts the value of the integer in the node of the Integer nonterminal
+          *
+          * @param Parse_Tree
+          *            a Parse_Tree object that is going to represent a parse_tree of the program
+      */
+    private static void Parse_Int(Parse_Tree p)
+
+  
+   //--------------------------------------------------------------------------------------------------
+   //                          PRINT OPERATIONS
+   //--------------------------------------------------------------------------------------------------
+  
+    
+    /**
+     * Prints the Prog nonterminal by making  a call to printing operations that print the 
+     * nonterminal possible substitutions. 
+         *
+         * @param Parse_Tree
+         *            a Parse_Tree object that represents a parse_tree of the program
+     */
+  
+   private static void Print_Prog(Parse_Tree p)
+   
+   /**
+    * Prints the Decl_Seq nonterminal by making  a call to printing operations that print the 
+    * nonterminal possible substitutions. 
+        *
+        * @param Parse_Tree
+        *            a Parse_Tree object that represents a parse_tree of the program
+    */
+  private static void Print_Decl_Seq(Parse_Tree p, int idnt_factor)
+  
+  /**
+   * Prints the Decl nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+   private static void Print_Decl (Parse_Tree p, int idnt_factor)
+
+   
+   /**
+    * Prints the Id_List nonterminal by making  a call to printing operations that print the 
+    * nonterminal possible substitutions. 
+        *
+        * @param Parse_Tree
+        *            a Parse_Tree object that represents a parse_tree of the program
+    */
+  private static void Print_Id_List(Parse_Tree p)
+  /**
+   * Prints the id nonterminal. Gets a value of the id from declared ids table and prints it 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Id(Parse_Tree p)
+
+ 
+  /**
+   * Prints the Stmt_Seq nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Stmt_Seq(Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the Stmt nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Stmt (Parse_Tree p, int idnt_factor)
+  
+  /**
+   * Prints the Assign nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Assign (Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the If nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_If (Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the While nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_While (Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the Input nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Input (Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the Output nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Output (Parse_Tree p, int idnt_factor)
+
+  /**
+   * Prints the Cond nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Cond (Parse_Tree p)
+
+  /**
+   * Prints the Comp nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Comp(Parse_Tree p)
+ 
+  /**
+   * Prints the Op nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Op(Parse_Tree p)
+ 
+  /**
+   * Prints the comparison sign  
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Comp_Op(Parse_Tree p)
+
+  
+  /**
+   * Prints the Expression nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+  private static void Print_Exp (Parse_Tree p)
+
+ 
+  /**
+   * Prints the Factor nonterminal by making  a call to printing operations that print the 
+   * nonterminal possible substitutions. 
+       *
+       * @param Parse_Tree
+       *            a Parse_Tree object that represents a parse_tree of the program
+   */
+         private static void Print_Factor(Parse_Tree p)
+         {
+             
+             int curs = p.getCursor();
+             
+             int alt = p.currAlt();
+             
+             if (alt==1)
+             {
+                 p.goDownLB();
+                 Print_Op(p);
+                 p.goUp(curs);
+                 
+             }
+             else if (alt==2)
+             {
+                 p.goDownLB();
+                 Print_Op(p);
+                 p.goUp(curs);
+                 System.out.print(" * ");
+                 p.goDownMB();
+                 Print_Factor(p);
+                 p.goUp(curs);
+             }
+             
+       }
+     
+         
+       
+         /**
+          * Prints the integer by getting it from the row of the integer nonterminal  
+              *
+              * @param Parse_Tree
+              *            a Parse_Tree object that represents a parse_tree of the program
+          */
+            private static void Print_Int(Parse_Tree p)
+            {
+               
+                int curs = p.getCursor();
+               
+                int Integer = p.get_terminal();
+               
+                System.out.print(Integer);
+              
+            }
+           
+            
+            
+            /**
+             * Prints the number of tabs specified in the parameter
+                 *
+                 * @param ident_factor
+                 *           integer object representing the number of tabs printed to the console
+             */
+           private static void Print_Idnt (int ident_factor)
+           {   
+        	   int number = 0;
+        	   while (number < ident_factor)
+        	   {
+        		   
+        		   System.out.print ("	");
+        		   number++;
+        	   }
+           }
+//-----------------------------------------------------------------------------------------------
+//                                        EXECUTE_OPERATIONS
+//-----------------------------------------------------------------------------------------------
+                   
+           /**
+            * Executes the program nonterminal by making  a call to executing operations that executes the 
+            * nonterminal possible substitutions. 
+                *
+                * @param Parse_Tree
+                *            a Parse_Tree object that represents a parse_tree of the program
+            */
+           private static void Exec_Prog(Parse_Tree p)
+              
+           
+           /**
+            * Executes the Stmt_Seq nonterminals by making  a call to executing operations that executes the 
+            * nonterminal possible substitutions. 
+                *
+                * @param Parse_Tree
+                *            a Parse_Tree object that represents a parse_tree of the program
+            */
+           private static void Exec_Stmt_Seq(Parse_Tree p)
+          
+           /**
+            * Executes the Stmt nonterminal by making  a call to executing operations that execute the 
+            * nonterminal possible substitutions. 
+                *
+                * @param Parse_Tree
+                *            a Parse_Tree object that represents a parse_tree of the program
+            */
+              private static void Exec_Stmt (Parse_Tree p)
+             
+              /**
+               * Executes the Assign nonterminal by making  a call to executing operations that execute the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Exec_Assign (Parse_Tree p)
+            
+              /**
+               * Executes the If nonterminal by making  a call to executing operations that execute the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Exec_If (Parse_Tree p)
+           
+       
+              /**
+               * Executes the While nonterminal by making  a call to executing operations that execute the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Exec_While (Parse_Tree p)
+            
+              /**
+               * Executes the Input nonterminal by making  a call to executing operations that execute the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Exec_Input (Parse_Tree p)
+             
+              /**
+               * Reads the id _list from inputdata file
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Read_Id_List(Parse_Tree p)
+            
+              /**
+               * Reads id from inputdata file
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */   
+             
+              private static void Read_Id(Parse_Tree p)
+              
+              /**
+               * The operation execute output nonterminal
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Exec_Output (Parse_Tree p)
+              /**
+               * Writes the id _list values to the console
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static void Write_Id_List (Parse_Tree p)
+             
+              
+              /**
+               * Writes the id  value to the console
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */    
+              private static void Write_Id(Parse_Tree p)
+              /**
+               * Evaluates the condition nonterminal by making  a call to evaluating operations that evaluate the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static boolean Eval_Cond (Parse_Tree p)
+  
+              /**
+               * Evaluates the comparison nonterminal by making  a call to evaluating operations that evaluate the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static boolean Eval_Comp(Parse_Tree p)
+
+             
+
+              /**
+               * Evaluates the expression nonterminal by making  a call to evaluating operations that evaluate the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */
+              private static int Eval_Exp (Parse_Tree p)
+             
+
+              /**
+               * Evaluates the factor nonterminal by making  a call to evaluating operations that evaluate the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */ 
+             
+                     private static int Eval_Factor(Parse_Tree p)
+                                
+  /**
+               * Evaluates the factor nonterminal by making  a call to evaluating operations that evaluate the 
+               * nonterminal possible substitutions. 
+                   *
+                   * @param Parse_Tree
+                   *            a Parse_Tree object that represents a parse_tree of the program
+               */ 
+         
+                     private static int Eval_Op(Parse_Tree p)
+                
+                     /**
+                      * Returns the integer value of the nonterminal 
+                          *
+                          * @param Parse_Tree
+                          *            a Parse_Tree object that represents a parse_tree of the program
+                      */
+                     
+                        private static int Get_Int(Parse_Tree p)
+
+The diescription if the Parse_Tree object is provided below.
+/**  
+ * Parse_Tree object represents a parse tree of the program.
+ * <b>Model:</b>
+ * <ul>
+ * <li>{@code cursor} - Represents the value that points to the current row of the parse tree arraylist </li>
+ * </ul
+* @author Igor Tolkachev
+*/
+//-------------------------------------------------------------------------------------------------------------
+PUBLIC OPERATIONS
+//---------------------------------------------------------------------------------------------------------------
+
+
+	 * Outputs the current size of the tokenizer
+	 * 
+	 */
+	
+	void Output_Tokenizer_Size();
+	
+	
+    /**
+         * Returns the value of alternative from the row of the Parse_Tree at the index of the current cursor 
+         *
+         * @param no parameters
+         *           
+
+     */
+
+    int currAlt();
+   
+    /**
+     * 
+     * The operation reads the file line by line, gets tokens from each line and puts them in
+     *  an arraylist object representing a container for tokens. In case if illegal token is encountered or "legal token" rules are 
+     *  violated, the operation prints the message and stops execution of the program
+     * 
+     * @param input
+     *           The scanner object representing the scanner that reads from the input file, which
+     *            is used  to collect tokens 
+     *
+     */
+    
+    void Collect_Tokens (Scanner input);
+ 
+    /**
+     * 
+     * The operation reads the input data file line by line, gets a string value from each line and puts it  
+     *  an arraylist object representing the cotainer for input data
+     * 
+     * @param input
+     *           The scanner object representing the scanner that reads from the input data file, which
+     *            is used  to collect input data
+     *
+     */
+  
+    
+    void Collect_Input_Data (Scanner input);
+    
+    /**
+     * 
+     * The operation inserts first row in the arraylist object Parsee_Tree_Rep representing the Parse_Tree
+     * 
+     * No parameters
+     *
+     */
+    void Insert_First();
+    /**
+     * 
+     * The operation prints the integer and string values of the tokens extracted from the file 
+     * 
+     * No parameters
+     *
+     */
+    void print_tokens();
+    
+    
+    /**
+     * 
+     * Outputs the row of the parse tree at the index specified in the parameter
+     * 
+     * No parameters
+     *
+     */
+   
+   void Output_Row_Of_Parse_Tree (int index_row);
+   /**
+    * 
+    * Outputs the size of the parse tree
+    * 
+    * No parameters
+    *
+    */
+    void Output_Parse_Tree_Size();
+    /**
+     * 
+     * Outputs the parse tree
+     * 
+     * No parameters
+     *
+     */
+    
+    void Output_Parse_Tree();
+    
+    /**
+     * 
+     * The operation returns a string value of the Id 
+     * 
+     * No parameters
+     *
+     */
+   
+    String getIDVal();
+    
+    /**
+     * 
+     * The operation returns an Integer value of the integer token
+     * 
+     * No parameters
+     *
+     */
+    
+    int getIntVal();
+   
+    
+    /**
+     * 
+     * The operation returns an the number of the tokens left in the
+     *  arraylist that contains the tokens
+     * 
+     * No parameters
+     *
+     */
+    
+    int TokensLeft();
+   
+    /**
+     * 
+     * The operation returns an the string of the first token in the
+     *  arraylist that contains the tokens.The token is not removed from the arraylist.
+     * 
+     * No parameters
+     *
+     */
+    
+    int NextToken();
+    
+    /**
+     * 
+     * The operation returns an the string of the first token in the
+     *  arraylist that contains the tokens.The token is  removed from the Parse_Tree.
+     * 
+     * No parameters
+     *
+     */
+    
+    int getToken();
+   
+    /**
+     * 
+     * The operation moves cursor to the row of the index of the left 
+     * child of the parent in the Parse_Tree
+     * 
+     * No parameters
+     *
+     */
+    
+    void goDownLB();
+   
+    /**
+     * 
+     * The operation moves cursor to the row of the index of the middle
+     * child of the parent in the Parse_Tree
+     * 
+     * No parameters
+     *
+     */
+    void goDownMB();
+   
+    
+    /**
+     * 
+     * The operation moves cursor to the row of the index of the right
+     * child of the parent in the Parse_Tree
+     * 
+     * No parameters
+     *
+     */
+    void goDownRB();
+    
+    /**
+     * 
+     * The operation returns the terminal (the value at the index [1]) 
+     * of the row (the nonterminal that can be replaced only with a terminal)
+     * at the given cursor. 
+     * 
+     * No parameters
+     *
+     */
+   
+    int get_terminal();
+   
+    
+    /**
+     * 
+     * The operation returns the string value of the id at the index [0] of the ID_Table
+     * No parameters
+     *
+     */
+    String getID_From_Table();
+   
+    
+    /**
+     * Sets the value of production number at  to the row of the Parse_Tree at the index of the current cursor 
+     *
+     * @param no parameters
+     *           
+
+ */
+
+    
+    void setNTNo(int n_of_pr);
+    
+    
+    /**
+     * Sets the value of alternative number to the row of the Parse_Tree at the index of the current cursor 
+     *
+     * @param no parameters
+     *           
+
+ */
+   
+    void setAltNo(int alt_n);
+    
+    /**
+     * 
+     * The operation creates a new row (that represents a left child) in arraylist and puts the index value 
+     * in the row of the position of the current cursor in arraylist
+     * 
+     * 
+     * 
+     * No parameters
+     *
+     */
+    void createLB();
+    /**
+     * 
+     * The operation creates a new row (that represents a middle child) in arraylist and puts the index value 
+     * in the row of the position of the current cursor in arraylist
+     * 
+     * 
+     * 
+     * No parameters
+     *
+     */
+    
+   
+    void createMB();   
+    /**
+     * 
+     * The operation creates a new row (that represents a right child) in arraylist and puts the index value 
+     * in the row of the position of the current cursor in arraylist
+     * 
+     * 
+     * 
+     * No parameters
+     *
+     */
+    
+    void createRB();
+   
+    /**
+     * 
+     * The operation moves cursor to the row of the index of the parent
+     * node  in the Parse_Tree
+     * 
+     * No parameters
+     *
+     */
+    void goUp(int cursor);
+    /**
+     * 
+     * The operation returns a current value of the  cursor 
+     * 
+     * No parameters
+     *
+     */
+    int getCursor();
+   
+    /**
+     * 
+     * The operation puts identifier in the Decl_ID_Table.
+     *  If identifier is already in the table, an error message is printed and a program is terminated
+     * 
+     * @param identifier
+     *          A string object that represents an identifier that is going to be put in the table
+     *
+     */
+    void putin_Decl_ID_Table(String identifier);
+    /**
+     * 
+     * The operation puts the index of the identifier of the table in the row of the arrayllist at 
+     * position of the value of the current cursor
+     * 
+     * @param identifier
+     *          A string object that represents an identifier that is going to be put in the table
+     *
+     */
+   
+    void putIDindex(String identifier);
+    
+    /**
+     * 
+     * The operation puts the terminal (the value at the index [1]) 
+     * to the row (the nonterminal that can be replaced only with a terminal)
+     * at the given cursor.
+     *  
+     * @param terminal
+     *          An integer object that represents an integer value of the token that is terminal 
+     *
+     *
+     */
+   
+    void put_terminal_INrow (int terminal);
+    
+    /**
+     * 
+     *The operation assign the identifier to the integer and put the pair in initialized IDs teble
+     * 
+     *
+     *  @param id
+     *          A string object that represents an identifier that is going to be put in the table
+     *
+     *
+     *@param x
+     *          An integer object that represents a number that is going to be put in the table
+     *
+     *
+     */
+  
+    void setIdVal(String id, int x);
+    
+    /**
+     * 
+     *The operation returns the integer value of id that it curently has
+     *
+     *  @param id
+     *          A string object that represents an identifier whose integer value is returned
+     *
+     *
+     */
+    
+  
+    int Get_Id_Value (String id);
+    
+    /**
+     * 
+     *The operation returns the integer value from the data_table
+     *
+     *No parameters  
+     */
+   
+  
+    int getInputValue ();
+   
+    TESTING
+The program was tested by the test plan specified below. 
+    program
+	int X;
+	int Y;
+begin
+	X = (5 + 2) - 3;
+	Y = 2;
+	X = X - 3;
+	write X;
+end
+X = 1
+
+3. program int X; int Y; begin X=(5-2)-3; Y=2; X=X-3; write X; end
+program
+	int X;
+	int Y;
+begin
+	X = (5 - 2) - 3;
+	Y = 2;
+	X = X - 3;
+	write X;
+end
+X = -3
+
+3. program int X; int Y; begin X=(5-2)-3; Y=2; X=X-Y; write X; end
+program
+	int X;
+	int Y;
+begin
+	X = (5 - 2) - 3;
+	Y = 2;
+	X = X - Y;
+	write X;
+end
+X = -2
+
+4.
+
+program int X; int Y; begin X=(5-2)-3; Y=2; X=X-Y; read X; write X; end
+Test2:
+
+
+program
+	int X;
+	int Y;
+begin
+	X = (5 - 2) - 3;
+	Y = 2;
+	X = X - Y;
+	read X;
+	write X;
+end
+X = 10
+
+5. 
+
+program int X;  begin X=0;  if !(X < 1) then X=36; end; write X; end
+
+program
+	int X;
+begin
+	X = 0;
+	if !(X < 1) then
+		X = 36;
+	end;
+	write X;
+end
+X = 0
+
+6. 
+
+program int X, Y;  begin read X, Y;  if [(X < Y) && (Y>5)] then X=36; else X=25; end; write X; end
+
+program
+	int X, Y;
+begin
+	read X, Y;
+	if[(X < Y) && (Y > 5)] then
+		X = 36;
+	else 
+		X = 25;
+	end; 
+	write X;
+end
+X = 36
+
+7. 
+program int X, Y, Z;  begin read X, Y;Z=1;  while ![(X < Y) && (X < 9)] loop X=X+1;Y=Y-1; write X;write Y; end; write X; write Y; end
+
+program
+	int X, Y, Z;
+begin
+	read X, Y;
+	Z = 1;
+	while ![(X < Y) && (X < 9)]  loop
+		X = X + 1;
+		Y = Y - 1;
+		write X;
+		write Y;
+	end; 
+	write X;
+	write Y;
+end
+X = 5
+Y = 11
+
+7. 
+program
+	int X, Y, Z;
+begin
+	read X, Y;
+	Z = 13;
+	while [(X < Y) || (X <= 9)]  loop
+		if [(X < Z)|| (Y < Z)] then
+			X = X + 1;
+			Y = Y - 1;
+			Z=Z-1;
+		end;
+	
+		write X;
+		write Y;
+		write Z;
+	end; 
+	
+end
+
+Output:
+X = 6
+Y = 10
+Z = 12
+X = 7
+Y = 9
+Z = 11
+X = 8
+Y = 8
+Z = 10
+X = 9
+Y = 7
+Z = 9
+X = 10
+Y = 6
+Z = 8
+
+
+
+8. 
+program
+	int X, Y, Z;
+begin
+	read X, Y;
+	Z = 13;
+	while [(X < Y) &&(X < 9)]  loop
+		if [(X < Z) && (Y < Z)] then
+			X = X + 1;
+			Z=Z-1;
+			else
+			Y = Y - 1;	
+		end;
+	
+		write X;
+		write Y;
+		write Z;
+	end; 
+	
+end
+
+Output:
+X = 6
+Y = 11
+Z = 12
+X = 7
+Y = 11
+Z = 11
+X = 7
+Y = 10
+Z = 11
+X = 8
+Y = 10
+Z = 10
+X = 8
+Y = 9
+Z = 10
+X = 9
+Y = 9
+Z = 9
+
+9. 
+program
+	int X, Y, Z, D;
+begin
+	D=1;
+	read X, Y;
+	Z = 13;
+	if (X > Z) then
+		write X;
+		write Y;
+		write Z;
+		write D;
+	else
+		while (X < Y) loop
+			X=X+D;
+			write Z;
+			write X;
+		end;	
+		
+	end; 
+	
+end
+
+
+Output: 
+Z = 13
+X = 6
+Z = 13
+X = 7
+Z = 13
+X = 8
+
+10. 
+program
+	int X, Y, Z, D;
+begin
+	D=1;
+	read X;
+	Z = 13;
+	if (X > Z) then
+		write X;
+		write Z;
+		write D;
+	else
+		read Y;
+		while (X < Y) loop
+			X=X+D;
+			Y=Y-D;
+			write Z;
+			write Y;
+			write X;
+			
+		end;	
+		
+	end; 
+	
+end
+Z = 13
+Y = 7
+X = 6
+Z = 13
+Y = 6
+X = 7
+
+program
+	int X, Y, Z, D;
+begin
+	D=13;
+	Z = 13;
+	
+	if (D > Z) then
+		read X;
+		write X;
+	else
+	if (D == Z) then
+		read X;
+		write X;
+		read Y;
+		write Y;
+	end;	
+			
+end
+
+
+
+
+
+program
+	int X, Y, Z, D;
+begin
+	D=13;
+	Z = 13;
+	
+	if (D > Z) then
+		read X;
+		write X;
+	else
+	if (D == Z) then
+		read X;
+		write X;
+		read Y;
+		write Y;
+	end;	
+			
+end
+
+output:
+
+X = 5
+Y = 8
+
+11. 
+program
+	int VALUE1, VALUE2, FACTOR, FOUND, TEMP1, TEMP2, COUNT;
+
+begin
+	read VALUE1;
+	read VALUE2;
+	FOUND=0;
+	if (VALUE1 < VALUE2) then
+		FACTOR = VALUE1;
+	else
+		FACTOR = VALUE2;
+	end;
+	COUNT = FACTOR;
+	while [(FOUND == 0) && (COUNT > 1)] loop
+		TEMP1 = VALUE1;
+		while (TEMP1>=COUNT) loop
+		TEMP1 = TEMP1-COUNT;
+		end;
+		TEMP2 = VALUE2;
+		while (TEMP2>=COUNT) loop
+			TEMP2=TEMP2-COUNT;
+		end;
+		if [(TEMP1==0) && (TEMP2==0)]then
+			FOUND = 1;
+		else
+			COUNT = COUNT - 1;
+		end;
+	end;
+	write COUNT;
+end
+output:
+count = 64
+
+program 
+	int X;
+	int TOTAL;
+	int LOWER;
+	int UPPER;
+	int COUNT;
+	int VALUE;
+begin
+	COUNT = 0;
+	read LOWER;
+	read UPPER; 
+	read TOTAL;
+	X=0;
+	while (COUNT < TOTAL) loop 
+		read VALUE;
+		if [(VALUE >= LOWER) && (VALUE <= UPPER)] then 
+		X=X+1;
+		end; 
+		COUNT = COUNT + 1;
+	end; 
+	write X;
+end 
+output: 4
+
+
+program
+	int X;
+	int TOTAL;
+	int LOWER;
+	int UPPER;
+	int COUNT12;
+	int VALUE;
+begin
+	COUNT12 = 0;
+	read LOWER;
+	read UPPER;
+	read TOTAL;
+	X = 0;
+	while (COUNT12 < TOTAL) loop
+		read VALUE;
+		if [(VALUE >= LOWER) && (VALUE <= UPPER)]  then
+			X = X + 1;
+		end;
+		COUNT12 = COUNT12 + 1;
+	end; 
+	write X;
+end
+X = 2
+
+
+Output: X = 2
+program
+	int X1, X4;
+	int X2, X3, X7;
+begin
+	X1 = 0;
+	X2 = 1;
+	X3 = 1;
+	read X4;
+	while (X1 < X4) loop
+		X7 = X2 + X3;
+		X2 = X3;
+		X3 = X7;
+		X1 = X1 + 1;
+	end; 
+	write X2;
+end
+Output:
+X2 = 233
+program
+	int UPPER, BEGIN, TEMP, FOUND, NUM;
+begin
+	read UPPER;
+	BEGIN = 2;
+	while (BEGIN < UPPER) loop
+		TEMP = 2;
+		FOUND = 0;
+		while [(TEMP < BEGIN) && (FOUND == 0)]  loop
+			NUM = BEGIN;
+			while (NUM >= TEMP) loop
+				NUM = NUM - TEMP;
+			end; 
+			if (NUM == 0) then
+				FOUND = 1;
+			end;
+			TEMP = TEMP + 1;
+		end; 
+		if (FOUND == 0) then
+			write BEGIN;
+		end;
+		BEGIN = BEGIN + 1;
+	end; 
+end
+
+The following bugs were encountered:
+ Nested if statement did not work
+The program could not add properly two variables
+ An if statement inside while statement did not work properly
+The identations were printed properly
+Parse tree was not constructed as it was supposed to.
+
+
+

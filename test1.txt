@@ -1,0 +1,26 @@
+program
+int X, Y, SUM;
+begin
+X=1;
+read Y;
+SUM=0;
+while (X<=Y) loop
+SUM=SUM+X;
+X=X+1;
+end;
+write SUM;
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
