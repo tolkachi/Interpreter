@@ -63,22 +63,18 @@ public class Interpreter_Main {
             }
     
   
-    	p.print_tokens();
+    	//p.print_tokens();
     	
-    	p.Output_Data_Table();
+    	//p.Output_Data_Table();
         //Parse program
         Parse_Prog(p);
        
-        p.Output_Parse_Tree();
+        //p.Output_Parse_Tree();
         //Print program
         Print_Prog(p);
        
         Exec_Prog(p);
-       
-   
-      
-       
-       
+                          
     }
    
     //--------------------------------------------------------------------------------------
